@@ -1,0 +1,29 @@
+.container2{
+    padding: auto;
+    display: flex;
+    min-width: 55px;
+    min-height: 550px;
+    flex-direction: column;
+    gap: 30px;
+    box-shadow: 1px 1.5px 10px green;
+    padding-top: 5px;
+}
+.header{
+    display: flex;
+    gap: 10px;;
+    overflow-x: auto;
+    border-bottom: 1px solid red;
+}
+.section{
+    padding: 10px;
+    /* border-bottom: 2px solid black; */
+    font-weight: 500;
+    /* border: 2px solid yellow; */
+    font-size: 1.5rem;
+    cursor: pointer;
+    /* margin-top: 0; */
+    /* white-space: nowrap; */
+}
+.header .active{
+    border-bottom: 2px solid saddlebrown;
+}
