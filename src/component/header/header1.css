@@ -1,0 +1,26 @@
+.container1{
+    background-color: rgb(122, 255, 255);
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 80vh;
+    margin-top: 0px;
+    
+}
+.head{
+    font-size: 3.5rem;
+    color: rgb(62, 5, 5);
+    line-height: 4rem;
+    max-width: 450px;
+    font-weight: bold;
+   
+}
+.head span{
+    color: blue;
+}
+.right img{
+    width: 35rem;
+    
+}
