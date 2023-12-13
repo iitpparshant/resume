@@ -1,0 +1,25 @@
+.container4{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+label{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+input{
+    border: 2px solid rgb(93, 0, 255);
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 1.2px 1.5px 1.5px 1.2px rgb(50, 81, 205);
+}
+input:hover{
+    border: 2px solid green;
+    box-shadow: 1.2px 1.5px 1.5px 1.2px yellowgreen;
+}
+input:focus{
+    border: 2px solid rgb(255, 0, 204);
+    box-shadow: 1.2px 1.5px 1.5px 1.2px rgb(239, 81, 142);
+}

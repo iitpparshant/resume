@@ -36,8 +36,16 @@
     padding: 8px 15px;
     font-size: 1rem;
     letter-spacing: 1px;
+    border-radius: 20px;
 }
 .toolbar button svg{
     height: 20px;
     width: 20px;
 }
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    align-items: center;
+  }
