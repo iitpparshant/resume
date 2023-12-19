@@ -4,7 +4,7 @@ import "./Body1.css"
 import Editor from "../Editor/editer"
 import Resume from "../Resume/Resume";
 function Body() {
-    const colors= ["red","yellow","green","black","blue"];
+    const colors= ["red","yellow","green","rgb(201, 7, 179)","blue"];
     
     const sections = {
         basicInfo: "Basic Info",
@@ -15,6 +15,7 @@ function Body() {
         summary: "Summary",
         other: "Other",
       };
+      const [activeColor, setActiveColor] = useState(colors[0]);
       const [resumeInformation, setResumeInformation] = useState({
         [sections.basicInfo]: {
           id: sections.basicInfo,
@@ -62,7 +63,8 @@ function Body() {
             <div className="toolbar">
                 <div className="colors">
                     {colors.map((item)=>(
-                    <span key={item} style={{backgroundColor: item}} className="color">
+                    <span key={item} style={{backgroundColor: item}} className={`color ${activeColor==item ? "active":" "} `}
+                    onClick={()=>setActiveColor(item)}>
 
                     </span>
                     ))}
@@ -71,7 +73,7 @@ function Body() {
             </div>
             <div className="main">
                 <Editor sections={sections} information= {resumeInformation} setInformation={setResumeInformation}/>
-                <Resume/>
+                <Resume sections={sections} information= {resumeInformation}  activeColor= {activeColor}/>
             </div>
         </div>
     );

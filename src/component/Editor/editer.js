@@ -265,7 +265,7 @@ function Editor(props) {
                 <Inputcontrol
                     placeholder="Line 4"
                     value={values.points ? values.points[3] : ""}
-                    onChange={(event) => handlePointUpdate(event.target.vslue, 3)}
+                    onChange={(event) => handlePointUpdate(event.target.value, 3)}
                 />
             </div>
         </div>
@@ -493,7 +493,9 @@ function Editor(props) {
             startDate: activeInfo?.details
                 ? activeInfo.details[0]?.startDate || ""
                 : "",
-            endDate: activeInfo?.details ? activeInfo.details[0]?.endDate || "" : "",
+            endDate: activeInfo?.details
+             ? activeInfo.details[0]?.endDate || ""
+              : "",
             points: activeInfo?.details
                 ? activeInfo.details[0]?.points
                     ? [...activeInfo.details[0]?.points]
@@ -517,6 +519,7 @@ function Editor(props) {
 
     useEffect(() => {
         setActiveInformation(information[sections[activeSectionKey]]);
+        // console.log(information);
     }, [information])
 
     useEffect(() => {
@@ -544,7 +547,7 @@ function Editor(props) {
     }, [activeDetailIndex])
 
     return (
-        <div className="container2">
+        <div className="containerp">
             <div className="header">
                 {Object.keys(sections)?.map((key) => (
                     <div
@@ -567,7 +570,7 @@ function Editor(props) {
                 <div className="chips">
                     {activeInformation?.details
                         ? activeInformation?.details?.map((item, index) => (
-                            <div className={` chip  ${activeDetailIndex === index ? 'active' : ""}`} key={item.title + index} onClick={()=> setActiveDetailIndex(index)}>
+                            <div className={` chip  ${activeDetailIndex === index ? 'active' : ""}`} key={item.title + index} onClick={() => setActiveDetailIndex(index)}>
                                 <p>{sections[activeSectionKey]} {index + 1}</p>
                                 <svg onClick={(event) => {
                                     event.stopPropagation();

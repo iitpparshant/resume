@@ -26,6 +26,9 @@
     border-radius: 50px;
     background-color: red;
 }
+.colors .active{
+    border: 3px solid black;
+}
 .toolbar button{
     margin-left: 90%;
     cursor: pointer;
@@ -47,5 +50,5 @@
     flex-direction: column;
     gap: 30px;
     width: 100%;
-    align-items: center;
+    /* align-items: center; */
   }
