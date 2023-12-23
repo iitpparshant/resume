@@ -200,7 +200,7 @@ function Editor(props) {
                 />
                 <Inputcontrol
                     label="Phone No."
-                    placeholder="Enter Phone No. eg. Fronted developer"
+                    placeholder="%Enter Phone No. eg. Fronted developer"
                     value={values.phone}
                     onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
                 />
@@ -217,10 +217,16 @@ function Editor(props) {
                     value={values.title}
                     onChange={(event) => setValues((prev) => ({ ...prev, title: event.target.value }))}
                 />
+                <Inputcontrol
+                    label="CPI / Percentage(%)"
+                    placeholder="Enter eg. 8.5 or 90%"
+                    value={values.cpi}
+                    onChange={(event) => setValues((prev) => ({ ...prev, cpi: event.target.value }))}
+                />
             </div>
             <Inputcontrol
                 label="Collage/School Name"
-                placeholder="Enter Collage/School Name eg. Fronted developer"
+                placeholder="Enter Collage/School Name"
                 value={values.college}
                 onChange={(event) => setValues((prev) => ({ ...prev, college: event.target.value }))}
             />
@@ -271,6 +277,17 @@ function Editor(props) {
         </div>
     );
 
+    const skillBody = (
+        <div className="detail">
+            <Inputcontrol
+                label="Skill"
+                placeholder="Enter skill like c++"
+                value={values.skill}
+                onChange={(event) => setValues((prev) => ({ ...prev, skill: event.target.value }))}
+            />
+        </div>
+    );
+
     const summaryBody = (
         <div className="detail">
             <Inputcontrol
@@ -305,6 +322,8 @@ function Editor(props) {
                 return educationBody;
             case sections.achievement:
                 return achievementsBody;
+            case sections.skill:
+                return skillBody
             case sections.summary:
                 return summaryBody;
             case sections.other:
@@ -380,6 +399,7 @@ function Editor(props) {
             case sections.education: {
                 const tempDetail = {
                     title: values.title,
+                    cpi: values.cpi,
                     college: values.college,
                     startDate: values.startDate,
                     endDate: values.endDate,
@@ -415,6 +435,18 @@ function Editor(props) {
                     [sections.summary]: {
                         ...prev[sections.summary],
                         detail: tempDetail,
+                        sectionTitle,
+                    },
+                }));
+                break;
+            }
+            case sections.skill: {
+                const tempSkill= values.skill;
+                props.setInformation((prev)=>({
+                    ...prev,
+                    [sections.skill]:{
+                        ...prev[sections.skill],
+                        detail:tempSkill,
                         sectionTitle,
                     },
                 }));
@@ -496,6 +528,9 @@ function Editor(props) {
             endDate: activeInfo?.details
              ? activeInfo.details[0]?.endDate || ""
               : "",
+            cpi: activeInfo?.details
+             ? activeInfo.details[0]?.cpi || ""
+              : "",
             points: activeInfo?.details
                 ? activeInfo.details[0]?.points
                     ? [...activeInfo.details[0]?.points]
@@ -512,6 +547,7 @@ function Editor(props) {
                 : activeInfo?.detail?.github || "",
             phone: activeInfo?.detail?.phone || "",
             email: activeInfo?.detail?.email || "",
+            skill : typeof activeInfo?.detail !=="object"?activeInfo.detail :"",
             summary: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
             other: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
         })
@@ -539,6 +575,7 @@ function Editor(props) {
             endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
             points: activeInfo.details[activeDetailIndex]?.points || "",
             title: activeInfo.details[activeDetailIndex]?.title || "",
+            cpi: activeInfo.details[activeDetailIndex]?.cpi ||"",
             linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",
             github: activeInfo.details[activeDetailIndex]?.github || "",
             college: activeInfo.details[activeDetailIndex]?.college || "",

@@ -27,12 +27,12 @@
 
 .header::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background-color: #b83030;
+  background-color: #b9b4b4;
   transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 .header::-webkit-scrollbar-thumb:hover {
-  background-color: #a02020; /* Change color on hover */
+  background-color: #aba4a4; /* Change color on hover */
 }
 
 .header::-webkit-scrollbar-track {

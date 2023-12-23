@@ -17,6 +17,7 @@
     flex-direction: column;
     gap: 10px;
   }
+ 
   .header2 .headingR{
     font-size: 2rem;
     font-weight: 400;
@@ -91,6 +92,8 @@
   }
 
   .content .title {
+    display: flex;
+    flex-direction: row;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.3rem;
@@ -134,4 +137,8 @@
 
   .hidden{
     display: none;
+  }
+  .collagecpi{
+    display: flex;
+    gap: 20px;
   }

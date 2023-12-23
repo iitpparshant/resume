@@ -1,8 +1,9 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useRef } from "react";
 import "./Body1.css"
 import Editor from "../Editor/editer"
 import Resume from "../Resume/Resume";
+import ReactToPrint from 'react-to-print';
 function Body() {
     const colors= ["red","yellow","green","rgb(201, 7, 179)","blue"];
     
@@ -11,10 +12,13 @@ function Body() {
         workExp: "Work Experience",
         project: "Projects",
         education: "Education",
+        skill:"Skill",
         achievement: "Achievements",
         summary: "Summary",
         other: "Other",
       };
+
+      const resumeRef= useRef();
       const [activeColor, setActiveColor] = useState(colors[0]);
       const [resumeInformation, setResumeInformation] = useState({
         [sections.basicInfo]: {
@@ -41,6 +45,11 @@ function Body() {
           id: sections.achievement,
           sectionTitle: sections.achievement,
           points: [],
+        },
+        [sections.skill]: {
+          id: sections.skill,
+          sectionTitle: sections.skill,
+          detail: "",
         },
         [sections.summary]: {
           id: sections.summary,
@@ -69,11 +78,20 @@ function Body() {
                     </span>
                     ))}
                 </div>
-               <button >Download <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></button>
+               
+            <ReactToPrint
+          trigger={() => {
+            
+            return (
+              <button >Download <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></button>
+              );
+            }}
+            content={() => resumeRef.current}
+            />
             </div>
             <div className="main">
                 <Editor sections={sections} information= {resumeInformation} setInformation={setResumeInformation}/>
-                <Resume sections={sections} information= {resumeInformation}  activeColor= {activeColor}/>
+                <Resume ref={resumeRef} sections={sections} information= {resumeInformation}  activeColor= {activeColor}/>
             </div>
         </div>
     );
