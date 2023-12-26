@@ -110,27 +110,33 @@ function Editor(props) {
             <div className="row">
                 <Inputcontrol
                     label="Title"
-                    placeholder="Enter title like Flipcart app"
+                    placeholder="Enter title eg. Flipcart Clone"
                     value={values.title}
                     onChange={(event) => setValues((prev) => ({ ...prev, title: event.target.value }))}
                 />
             </div>
             <Inputcontrol
                 label="Overview"
-                placeholder="Enter Overview like Flipcart app"
+                placeholder="Enter Overview of Project"
                 value={values.overview}
                 onChange={(event) => setValues((prev) => ({ ...prev, overview: event.target.value }))}
+            />
+            <Inputcontrol
+                label="Skill Used"
+                placeholder="Skill used in project eg. React.js"
+                value={values.skilluse}
+                onChange={(event) => setValues((prev) => ({ ...prev, skilluse: event.target.value }))}
             />
             <div className="row">
                 <Inputcontrol
                     label="Deployed link"
-                    placeholder="Enter Deployed link of Flipcart app"
+                    placeholder="Enter Deployed link of Project"
                     value={values.link}
                     onChange={(event) => setValues((prev) => ({ ...prev, link: event.target.value }))}
                 />
                 <Inputcontrol
                     label="Github link"
-                    placeholder="Enter Github link of Flipcart app"
+                    placeholder="Enter Github link of Project"
                     value={values.github}
                     onChange={(event) => setValues((prev) => ({ ...prev, github: event.target.value }))}
                 />
@@ -180,13 +186,13 @@ function Editor(props) {
             <div className="row">
                 <Inputcontrol
                     label="Linkedin Link"
-                    placeholder="Enter Linkedin Link eg. Fronted developer"
+                    placeholder="Enter Linkedin Link"
                     value={values.linkedin}
                     onChange={(event) => setValues((prev) => ({ ...prev, linkedin: event.target.value }))}
                 />
                 <Inputcontrol
                     label="Github link"
-                    placeholder="Enter Github link eg. Fronted developer"
+                    placeholder="Enter Github link"
                     value={values.github}
                     onChange={(event) => setValues((prev) => ({ ...prev, github: event.target.value }))}
                 />
@@ -194,13 +200,13 @@ function Editor(props) {
             <div className="row">
                 <Inputcontrol
                     label="Email"
-                    placeholder="Enter Email eg. Fronted developer"
+                    placeholder="Enter Email address"
                     value={values.email}
                     onChange={(event) => setValues((prev) => ({ ...prev, email: event.target.value }))}
                 />
                 <Inputcontrol
                     label="Phone No."
-                    placeholder="%Enter Phone No. eg. Fronted developer"
+                    placeholder="Enter Phone No."
                     value={values.phone}
                     onChange={(event) => setValues((prev) => ({ ...prev, phone: event.target.value }))}
                 />
@@ -292,7 +298,7 @@ function Editor(props) {
         <div className="detail">
             <Inputcontrol
                 label="Summary"
-                placeholder="Enter Summary e"
+                placeholder="Enter Summary "
                 value={values.summary}
                 onChange={(event) => setValues((prev) => ({ ...prev, summary: event.target.value }))}
             />
@@ -381,6 +387,7 @@ function Editor(props) {
                     link: values.link,
                     title: values.title,
                     overview: values.overview,
+                    skilluse:values.skilluse,
                     github: values.github,
                     points: values.points,
                 }
@@ -509,6 +516,9 @@ function Editor(props) {
             overview: activeInfo?.details
                 ? activeInfo.details[0]?.overview || ""
                 : "",
+            skilluse: activeInfo?.details
+                ?activeInfo.details[0]?.skilluse|| ""
+                :"",    
             link: activeInfo?.details ? activeInfo.details[0]?.link || "" : "",
             certificationLink: activeInfo?.details
                 ? activeInfo.details[0]?.certificationLink || ""
@@ -566,6 +576,7 @@ function Editor(props) {
         const activeInfo = information[sections[activeSectionKey]];
         setValues({
             overview: activeInfo.details[activeDetailIndex]?.overview || "",
+            skilluse: activeInfo.details[activeDetailIndex]?.skilluse || "",
             link: activeInfo.details[activeDetailIndex]?.link || "",
             certificationLink:
                 activeInfo.details[activeDetailIndex]?.certificationLink || "",
