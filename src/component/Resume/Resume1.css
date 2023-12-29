@@ -11,6 +11,11 @@
     flex-direction: column;
     gap: 30px;
     padding: 30px;
+    background-color: white;
+
+    @page {
+      size: A4;
+    }
   }
   .header2{
     display: flex;

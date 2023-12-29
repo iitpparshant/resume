@@ -1,6 +1,6 @@
 import React from "react";
 import "./header1.css";
-import resumesvg from "../../assets/resume.svg";
+import resumesvg from "../assets/resume.svg";
 function Header() {
     return (
         <div className="container1">

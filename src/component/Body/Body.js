@@ -68,6 +68,7 @@ function Body() {
       }, [resumeInformation])
     return (
         <div className="container">
+          <hr />
             <p className="heading">Resume Builder</p>
             <div className="toolbar">
                 <div className="colors">
@@ -91,6 +92,10 @@ function Body() {
             </div>
             <div className="main">
                 <Editor sections={sections} information= {resumeInformation} setInformation={setResumeInformation}/>
+                <div className="aftereditor">
+                <hr />
+                <h1>Final Resume</h1>
+                </div>
                 <Resume ref={resumeRef} sections={sections} information= {resumeInformation}  activeColor= {activeColor}/>
             </div>
         </div>

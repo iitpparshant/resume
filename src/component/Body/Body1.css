@@ -5,10 +5,19 @@
     align-items: center;
     gap: 30px;
     padding-top: 0;
+    /* color: white; */
+}
+.container hr{
+    border: 0;
+    height: 5px;
+    width: 80%;
+    background: red;
+    border-radius: 25px;
 }
 .heading{
-    font-weight: 100;
-    font-size: 2rem;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: white;
 }
 .toolbar{
     width: 75%;
@@ -27,12 +36,12 @@
     background-color: red;
 }
 .colors .active{
-    border: 3px solid black;
+    border: 4px solid rgb(255, 251, 251);
 }
 .toolbar button{
     margin-left: 90%;
     cursor: pointer;
-    background-color: rgb(100, 100, 243);
+    background-color: rgb(20, 226, 20);
     color: white;
     display: flex;
     align-items: center;
@@ -45,10 +54,22 @@
     height: 20px;
     width: 20px;
 }
+.toolbar button:hover{
+    background-color: rgb(255, 7, 7);
+}
 .main {
     display: flex;
     flex-direction: column;
     gap: 30px;
     width: 100%;
     /* align-items: center; */
+  }
+
+  .aftereditor{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    gap: 25px;
+    margin: 15px;
   }

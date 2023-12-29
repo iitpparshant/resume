@@ -1,0 +1,49 @@
+.navcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: red;
+    gap: 30px;
+    position: fixed;
+    width: 100%;
+    color: white;
+    padding: 15px;
+}
+.navcontainer img{
+    height: 45px;
+    padding: 0;
+
+}
+.navbar{
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link{
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: aqua;
+    border: 2px solid gold;
+    color: green;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.nav-link:hover{
+    color: rgb(3, 14, 114);
+    background-color: green;
+}
+
+.navbar button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .nav-button:hover {
+    background-color: #555;
+  }
+  
