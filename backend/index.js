@@ -16,7 +16,13 @@ mongoDB();
     }
   })();
 
-  app.use(cors());
+  app.use(cors(
+    {
+        origin:["https://resume-lake-zeta.vercel.app/"],
+        methods:["POST","GET"],
+        credentials:true
+    }
+  ));
   app.get('/', (req, res) => {
     res.send('Hello World!');
   });
