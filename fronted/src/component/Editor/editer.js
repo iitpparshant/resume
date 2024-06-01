@@ -472,6 +472,7 @@ function Editor(props) {
                 break;
             }
         }
+        // console.log(sections);
     }
 
     const handleAddNew = () => {

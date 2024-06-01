@@ -19,6 +19,29 @@
     font-weight: bold;
    
 }
+.resume{
+    color: white;
+    margin: 30px;
+    font-weight: bold;
+    font-size: 2.1rem;
+}
+.click{
+    font-size:2rem;
+    font-weight: 500;
+    background-color: aqua;
+    border: 5px solid gold;
+    color: green;
+    padding: 15px;
+    margin:15px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.click:hover{
+    background-color: white;
+    color: red;
+    border: 5px solid black ;
+}
 .head span{
     color: rgb(8, 231, 34);
 }

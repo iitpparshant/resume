@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: red;
-    gap: 30px;
+    /* gap: 30px; */
     position: fixed;
     width: 100%;
     color: white;
@@ -17,7 +17,7 @@
 }
 .navbar{
     display: flex;
-    gap: 2rem;
+    gap: 35px;
 }
 
 .nav-link{
@@ -29,12 +29,28 @@
     padding: 5px;
     border-radius: 15px;
     cursor: pointer;
+    text-decoration: none;
 }
 .nav-link:hover{
     color: rgb(3, 14, 114);
     background-color: green;
 }
-
+.login{
+    display: flex;
+    gap: 15px;
+}
+.nav-button{
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: aqua;
+    border: 2px solid gold;
+    color: green;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
 .navbar button {
     background-color: green;
     color: white;
@@ -45,5 +61,6 @@
   }
   .nav-button:hover {
     background-color: #555;
+    color: white;
   }
   

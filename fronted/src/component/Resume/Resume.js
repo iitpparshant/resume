@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
-import { useState, useEffect ,useRef} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import "./Resume1.css";
 
-const Resume=forwardRef((props,ref)=> {
+const Resume = forwardRef((props, ref) => {
 
     const information = props.information;
     const sections = props.sections;
-    const containerkRef= useRef();
+    const containerkRef = useRef();
 
     const [source, setSource] = useState("")
     const [target, setTarget] = useState("")
@@ -17,7 +17,7 @@ const Resume=forwardRef((props,ref)=> {
         achievement: information[sections.achievement],
         education: information[sections.education],
         basicInfo: information[sections.basicInfo],
-        skill : information[sections.skill],
+        skill: information[sections.skill],
         summary: information[sections.summary],
         other: information[sections.other],
     };
@@ -83,7 +83,7 @@ const Resume=forwardRef((props,ref)=> {
 
                     <div className="item">
                         {item.title ? (<p className="title">{item.title}</p>) : (" ")}
-                        
+
                         {item.link ? (<a href={item.link} className="link" target="_blank" rel='noopener noreferrer'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>{item.link}</a>) : ("")}
                         {item.github ? (<a href={item.github} className="link" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>{item.github}</a>) : ("")}
                         {item.overview ? (<p className="overview">{item.overview}</p>) : (" ")}
@@ -115,8 +115,8 @@ const Resume=forwardRef((props,ref)=> {
                         <div className="item">
                             {item.title ? (<p className="title">{item.title}</p>) : ("")}
                             <div className="collagecpi">
-                            {item.college ? (<p className="subTitle">{item.college}</p>) : ("")}
-                            {item.cpi ? (<p className="subTitle">{item.cpi[item.cpi.length - 1] === '%' ? 'Percentage' : 'CPI'} : {item.cpi}</p>) : ("")}
+                                {item.college ? (<p className="subTitle">{item.college}</p>) : ("")}
+                                {item.cpi ? (<p className="subTitle">{item.cpi[item.cpi.length - 1] === '%' ? 'Percentage' : 'CPI'} : {item.cpi}</p>) : ("")}
                             </div>
                             {item.startDate && item.endDate ? (
                                 <div className="date">
@@ -202,47 +202,47 @@ const Resume=forwardRef((props,ref)=> {
         )
     }
 
-    const swapSourceTarget=(source,target)=>{
-        if(!source || !target){
+    const swapSourceTarget = (source, target) => {
+        if (!source || !target) {
             return;
         }
-        const tempColumns= [[...columns[0]],[...columns[1]]];
+        const tempColumns = [[...columns[0]], [...columns[1]]];
 
-        let sourceRowIndex= tempColumns[0].findIndex((item)=> item===source);
-        let sourceColumnIndex =0;
-        if(sourceRowIndex<0){
-            sourceColumnIndex=1;
-            sourceRowIndex= tempColumns[1].findIndex((item)=> item===source);
+        let sourceRowIndex = tempColumns[0].findIndex((item) => item === source);
+        let sourceColumnIndex = 0;
+        if (sourceRowIndex < 0) {
+            sourceColumnIndex = 1;
+            sourceRowIndex = tempColumns[1].findIndex((item) => item === source);
         }
 
-        let targetRowIndex= tempColumns[0].findIndex((item)=> item===target);
-        let targetColumnIndex =0;
-        if(targetRowIndex<0){
-            targetColumnIndex=1;
-            targetRowIndex= tempColumns[1].findIndex((item)=> item===target);
+        let targetRowIndex = tempColumns[0].findIndex((item) => item === target);
+        let targetColumnIndex = 0;
+        if (targetRowIndex < 0) {
+            targetColumnIndex = 1;
+            targetRowIndex = tempColumns[1].findIndex((item) => item === target);
         }
 
-        const tempSource= tempColumns[sourceColumnIndex][sourceRowIndex];
-        tempColumns[sourceColumnIndex][sourceRowIndex]= tempColumns[targetColumnIndex][targetRowIndex];
-        tempColumns[targetColumnIndex][targetRowIndex]= tempSource;
+        const tempSource = tempColumns[sourceColumnIndex][sourceRowIndex];
+        tempColumns[sourceColumnIndex][sourceRowIndex] = tempColumns[targetColumnIndex][targetRowIndex];
+        tempColumns[targetColumnIndex][targetRowIndex] = tempSource;
         setColumns(tempColumns);
     }
 
     useEffect(() => {
         setColumns([
-            [sections.project, sections.education,sections.skill, sections.summary],
+            [sections.project, sections.education, sections.skill, sections.summary],
             [sections.workExp, sections.achievement, sections.other],
         ]);
     }, []);
 
     useEffect(() => {
-        swapSourceTarget(source,target);
+        swapSourceTarget(source, target);
     }, [source])
 
     useEffect(() => {
-        const containerk=containerkRef.current;
-        if(!props.activeColor|| !containerk){
-            return ;
+        const containerk = containerkRef.current;
+        if (!props.activeColor || !containerk) {
+            return;
         }
         containerk.style.setProperty("--color", props.activeColor);
     }, [props.activeColor])
@@ -250,60 +250,60 @@ const Resume=forwardRef((props,ref)=> {
 
     return (
         <div ref={ref}>
-        <div ref={containerkRef} className='containerk'>
-            <div className="header2">
-                <p className="headingR">
-                    {info.basicInfo?.detail?.name}
-                </p>
-                <p className="subHeading">
-                    {info.basicInfo?.detail?.title}
-                </p>
-                <div className="links">
-  {info.basicInfo?.detail?.email ? (
-    <a href={info.basicInfo?.detail?.email} className="link" target='_blank' rel='noopener noreferrer'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-        <polyline points="22,6 12,13 2,6"></polyline>
-      </svg>
-      {info.basicInfo?.detail?.email}
-    </a>
-  ) : ("")}
-  {info.basicInfo?.detail?.phone ? (
-    <a href={info.basicInfo?.detail?.phone} className="link" target='_blank' rel='noopener noreferrer'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
-        <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-      </svg>
-      {info.basicInfo?.detail?.phone}
-    </a>
-  ) : ("")}
-  {info.basicInfo?.detail?.linkedin ? (
-    <a href={info.basicInfo?.detail?.linkedin} className="link" target='_blank' rel='noopener noreferrer'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-        <rect x="2" y="9" width="4" height="12"></rect>
-        <circle cx="4" cy="4" r="2"></circle>
-      </svg>
-      {info.basicInfo?.detail?.linkedin}
-    </a>
-  ) : ("")}
-  {info.basicInfo?.detail?.github ? (
-    <a href={info.basicInfo?.detail?.github} className="link" target='_blank' rel='noopener noreferrer'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
-        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-      </svg>
-      {info.basicInfo?.detail?.github}
-    </a>
-  ) : ("")}
-</div>
+            <div ref={containerkRef} className='containerk'>
+                <div className="header2">
+                    <p className="headingR">
+                        {info.basicInfo?.detail?.name}
+                    </p>
+                    <p className="subHeading">
+                        {info.basicInfo?.detail?.title}
+                    </p>
+                    <div className="links">
+                        {info.basicInfo?.detail?.email ? (
+                            <a href={info.basicInfo?.detail?.email} className="link" target='_blank' rel='noopener noreferrer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                {info.basicInfo?.detail?.email}
+                            </a>
+                        ) : ("")}
+                        {info.basicInfo?.detail?.phone ? (
+                            <a href={info.basicInfo?.detail?.phone} className="link" target='_blank' rel='noopener noreferrer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
+                                    <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                {info.basicInfo?.detail?.phone}
+                            </a>
+                        ) : ("")}
+                        {info.basicInfo?.detail?.linkedin ? (
+                            <a href={info.basicInfo?.detail?.linkedin} className="link" target='_blank' rel='noopener noreferrer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                                {info.basicInfo?.detail?.linkedin}
+                            </a>
+                        ) : ("")}
+                        {info.basicInfo?.detail?.github ? (
+                            <a href={info.basicInfo?.detail?.github} className="link" target='_blank' rel='noopener noreferrer'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                {info.basicInfo?.detail?.github}
+                            </a>
+                        ) : ("")}
+                    </div>
 
+                </div>
+                <div className="mainrs">
+                    <div className="col1">{columns[0].map(item => sectionDiv[item])}</div>
+                    <div className="col2">{columns[1].map(item => sectionDiv[item])}</div>
+                </div>
             </div>
-            <div className="mainrs">
-                <div className="col1">{columns[0].map(item => sectionDiv[item])}</div>
-                <div className="col2">{columns[1].map(item => sectionDiv[item])}</div>
-            </div>
-        </div>
         </div>
     )
 });
 
-export default Resume
+export default Resume;

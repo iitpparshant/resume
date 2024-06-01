@@ -4,6 +4,7 @@ import "./Body1.css"
 import Editor from "../Editor/editer"
 import Resume from "../Resume/Resume";
 import ReactToPrint from 'react-to-print';
+
 function Body() {
     const colors= ["red","yellow","green","rgb(201, 7, 179)","blue"];
     
@@ -68,6 +69,7 @@ function Body() {
       }, [resumeInformation])
     return (
         <div className="container">
+          
           <hr />
             <p className="heading">Resume Builder</p>
             <div className="toolbar">

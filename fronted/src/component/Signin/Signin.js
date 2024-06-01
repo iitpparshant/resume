@@ -1,43 +1,39 @@
 import React, { useState } from 'react';
 import './Signin.css';
 import downloadsign from '../assets/downloadsign.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
-  const [message, setMessage] = useState(null);
-
-  const { email, password } = formData;
+  let navigate= useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Enhanced email regex
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailRegex.test(email)) {
-      setMessage('Invalid email format');
-      return;
-    }
-
-    if (password.length < 6) {
-      setMessage('Password should be at least 6 characters');
-      return;
-    }
-
-    // Simulate sign-in logic (replace with your actual authentication logic)
-    if(onSuccess({email,password})){
-      setMessage('Signed in successfully');
-    }
-    else {
-      setMessage('Invalid email or password. Please try again.');
-    }
+    const response = await fetch("http://localhost:5000/api/loginuser", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: formData.email, password: formData.password })
+    });
+    const json= await response.json();
+        console.log(json)
+        if(!json.success){
+            alert("Enter Valid Credentials")
+        }
+        if(json.success){
+          localStorage.setItem("userEmail",formData.email);
+          localStorage.setItem("authToken",json.authToken);
+          console.log(localStorage.getItem("authToken"),localStorage.getItem("userEmail"))
+          navigate("/");
+        }
   };
 
   return (
@@ -48,7 +44,7 @@ const Signin = ({ onSuccess }) => {
         <input
           type="email"
           id="email"
-          value={email}
+          value={formData.email}
           onChange={handleChange}
           placeholder="Enter your email"
           required
@@ -57,15 +53,14 @@ const Signin = ({ onSuccess }) => {
         <input
           type="password"
           id="password"
-          value={password}
+          value={formData.password}
           onChange={handleChange}
           placeholder="Enter your password"
           required
         />
 
         <button type="submit">Submit</button>
-
-        {message && <div className="message">{message}</div>}
+        <Link to="/signup" className='new'>New user</Link>
       </form>
     </div>
   );

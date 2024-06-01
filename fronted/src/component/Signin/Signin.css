@@ -36,10 +36,13 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
   }
   
   button:hover {
-    background-color: #0056b3;
+    color: red;
+    background-color:white;
   }
   
   .message {
@@ -47,4 +50,12 @@
     color: #ff0000;
     font-size: 14px;
   }
-  
+
+  .new{
+    color: yellow;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  .new:hover{
+    color: green;
+  }
