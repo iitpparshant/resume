@@ -11,6 +11,12 @@
     margin-top: 25px;
     
 }
+.cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .head{
     font-size: 3.5rem;
     color: rgb(210, 19, 19);
@@ -65,4 +71,14 @@
 .templet h1{
     color: white;
     font-size: 6rem;
+}
+.arrowclick{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.arrow{
+    height: 100px;
 }
