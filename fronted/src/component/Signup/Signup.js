@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Signup.css'; // Import your CSS file for styling
 import downloadsign from '../assets/downloadsign.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,8 @@ const Signup = () => {
     password: '',
     gender: '',
   });
-
+  
+  let navigate= useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -28,6 +29,10 @@ const Signup = () => {
     console.log(json);
     if (!json.success) {
       alert("Enter valid data");
+    }
+    if(json.success){
+      alert("You have sucessfully signup");
+      navigate("/siginin")
     }
   };
 

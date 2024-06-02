@@ -24,14 +24,14 @@ const Signin = ({ onSuccess }) => {
       body: JSON.stringify({ email: formData.email, password: formData.password })
     });
     const json= await response.json();
-        console.log(json)
+        // console.log(json)
         if(!json.success){
             alert("Enter Valid Credentials")
         }
         if(json.success){
           localStorage.setItem("userEmail",formData.email);
           localStorage.setItem("authToken",json.authToken);
-          console.log(localStorage.getItem("authToken"),localStorage.getItem("userEmail"))
+          // console.log(localStorage.getItem("authToken"),localStorage.getItem("userEmail"))
           navigate("/");
         }
   };
