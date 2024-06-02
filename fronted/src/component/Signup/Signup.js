@@ -32,7 +32,7 @@ const Signup = () => {
     }
     if(json.success){
       alert("You have sucessfully signup");
-      navigate("/siginin")
+      navigate("/signin")
     }
   };
 
