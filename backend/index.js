@@ -18,7 +18,7 @@ mongoDB();
 
   app.use(cors(
     {
-        origin:[""],
+        origin:["https://resume-lake-front.vercel.app"],
         methods:["POST","GET"],
         credentials:true
     }
