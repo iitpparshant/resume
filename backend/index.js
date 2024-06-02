@@ -18,7 +18,7 @@ mongoDB();
 
   app.use(cors(
     {
-        origin:["https://resume-lake-zeta.vercel.app/"],
+        origin:[""],
         methods:["POST","GET"],
         credentials:true
     }
