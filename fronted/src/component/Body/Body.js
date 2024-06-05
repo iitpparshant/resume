@@ -70,7 +70,7 @@ function Body() {
   return (
     <div className="container">
 
-      <hr />
+      {/* <hr /> */}
       <p className="heading">Resume Builder</p>
       <div className="toolbar">
         <div className="colors">

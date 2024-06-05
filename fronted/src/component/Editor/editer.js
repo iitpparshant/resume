@@ -387,7 +387,7 @@ function Editor(props) {
                     link: values.link,
                     title: values.title,
                     overview: values.overview,
-                    skilluse:values.skilluse,
+                    skilluse: values.skilluse,
                     github: values.github,
                     points: values.points,
                 }
@@ -448,12 +448,12 @@ function Editor(props) {
                 break;
             }
             case sections.skill: {
-                const tempSkill= values.skill;
-                props.setInformation((prev)=>({
+                const tempSkill = values.skill;
+                props.setInformation((prev) => ({
                     ...prev,
-                    [sections.skill]:{
+                    [sections.skill]: {
                         ...prev[sections.skill],
-                        detail:tempSkill,
+                        detail: tempSkill,
                         sectionTitle,
                     },
                 }));
@@ -518,8 +518,8 @@ function Editor(props) {
                 ? activeInfo.details[0]?.overview || ""
                 : "",
             skilluse: activeInfo?.details
-                ?activeInfo.details[0]?.skilluse|| ""
-                :"",    
+                ? activeInfo.details[0]?.skilluse || ""
+                : "",
             link: activeInfo?.details ? activeInfo.details[0]?.link || "" : "",
             certificationLink: activeInfo?.details
                 ? activeInfo.details[0]?.certificationLink || ""
@@ -537,11 +537,11 @@ function Editor(props) {
                 ? activeInfo.details[0]?.startDate || ""
                 : "",
             endDate: activeInfo?.details
-             ? activeInfo.details[0]?.endDate || ""
-              : "",
+                ? activeInfo.details[0]?.endDate || ""
+                : "",
             cpi: activeInfo?.details
-             ? activeInfo.details[0]?.cpi || ""
-              : "",
+                ? activeInfo.details[0]?.cpi || ""
+                : "",
             points: activeInfo?.details
                 ? activeInfo.details[0]?.points
                     ? [...activeInfo.details[0]?.points]
@@ -558,7 +558,7 @@ function Editor(props) {
                 : activeInfo?.detail?.github || "",
             phone: activeInfo?.detail?.phone || "",
             email: activeInfo?.detail?.email || "",
-            skill : typeof activeInfo?.detail !=="object"?activeInfo.detail :"",
+            skill: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
             summary: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
             other: typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
         })
@@ -587,7 +587,7 @@ function Editor(props) {
             endDate: activeInfo.details[activeDetailIndex]?.endDate || "",
             points: activeInfo.details[activeDetailIndex]?.points || "",
             title: activeInfo.details[activeDetailIndex]?.title || "",
-            cpi: activeInfo.details[activeDetailIndex]?.cpi ||"",
+            cpi: activeInfo.details[activeDetailIndex]?.cpi || "",
             linkedin: activeInfo.details[activeDetailIndex]?.linkedin || "",
             github: activeInfo.details[activeDetailIndex]?.github || "",
             college: activeInfo.details[activeDetailIndex]?.college || "",

@@ -8,6 +8,7 @@ import Footer from './component/Footer/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signin from './component/Signin/Signin';
 import Signup from './component/Signup/Signup';
+import Contact from './component/Contact/Contact';
 // import Resume from './component/Resume/Resume';
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/body" element={<Body />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         {/* <Header/> */}
         <Footer />

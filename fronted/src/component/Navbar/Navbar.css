@@ -34,6 +34,7 @@
 .nav-link:hover{
     color: rgb(3, 14, 114);
     background-color: green;
+    color: white;
 }
 .login{
     display: flex;

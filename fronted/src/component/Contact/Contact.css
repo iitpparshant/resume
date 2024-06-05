@@ -1,0 +1,104 @@
+.contact{
+  background-color: blue;
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.contact h1{
+  margin-top: 150px;
+  color: white;
+}
+.contact p{
+  color: white;
+  margin-bottom: 100px;
+  font-size: 1.2rem;
+}
+.joint{
+  display: flex;
+  flex-direction: row;
+  height: 620px;
+  margin-bottom: 50px;
+}
+.joint form h2{
+  margin: 50px;
+}
+.contact form{
+  width: 45%;
+  margin-left: 50px;
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+form .summary{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.name{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+form label{
+  margin: 10px;
+}
+.contc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.joint button{
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+}
+.joint button:hover{
+  background-color: red;
+  color: blue;
+}
+.me{
+  /* height: 500px; */
+  width: 45%;
+  background-color: rgb(73, 70, 70);
+  color: white;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 30px; */
+}
+
+.contact h2{
+  margin: 40px;
+}
+.me .pho img{
+  background-color: white;
+  /* margin: 10px; */
+}
+.me .mai{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.pho{
+  display: flex;
+  flex-direction: row;
+  /* justify-content:space-evenly; */
+  align-items: center;
+  margin: auto;
+}
+.imag{
+  width: 50%;
+  height: 30%;
+  margin: 15px;
+}
