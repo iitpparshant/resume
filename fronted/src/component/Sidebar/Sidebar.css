@@ -1,0 +1,113 @@
+/* Sidebar.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hide {
+  transform: translateX(-100%);
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
+
+.toggle-button {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: white;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+.toggle-button img{
+  width: 30px;
+  height: 30px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  gap: 35px;
+  top: 70px;
+}
+
+.homecontact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  margin: 15px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: aqua;
+  border: 2px solid gold;
+  color: green;
+  padding: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: green;
+  color: white;
+}
+
+.signinup .login {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: aqua;
+  border: 2px solid gold;
+  color: green;
+  padding: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.nav-button:hover {
+  background-color: #555;
+  color: white;
+}
+
+@media (min-width: 851px) {
+  .sidebar {
+    position: relative;
+    transform: translateX(0);
+    height: 30px;
+  }
+  
+  .toggle-button {
+    display: none;
+  }
+}

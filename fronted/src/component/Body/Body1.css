@@ -3,15 +3,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 30px;
     padding-top: 0;
+    width: 100%;
     margin-top: 100px;
     /* color: white; */
 }
 .container hr{
     border: 0;
     height: 5px;
-    width: 80%;
+    width: 90%;
     background: red;
     border-radius: 25px;
 }
@@ -21,10 +23,10 @@
     color: white;
 }
 .toolbar{
-    width: 75%;
+    width: 95%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
 }
 .colors{
     display: flex;
@@ -40,7 +42,8 @@
     border: 4px solid rgb(255, 251, 251);
 }
 .toolbar button{
-    margin-left: 70%;
+    margin-right: 5%;
+    height: 40px;
     cursor: pointer;
     background-color: rgb(20, 226, 20);
     color: white;
@@ -50,6 +53,7 @@
     font-size: 1rem;
     letter-spacing: 1px;
     border-radius: 20px;
+    width: 150px;
 }
 .toolbar button svg{
     height: 20px;
@@ -63,8 +67,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 100%;
-    /* align-items: center; */
+    width: 90%;
+    align-items: center;
   }
 
   .aftereditor{
@@ -74,4 +78,19 @@
     align-items: center;
     gap: 25px;
     margin: 15px;
+  }
+  .mid{
+    width: 80%;
+  }
+  
+ 
+  @media (max-width: 851px) {
+    .container{
+        width: 100%;
+    }
+    .toolbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
   }

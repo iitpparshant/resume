@@ -19,7 +19,7 @@ const mongoDB = require('./db');
 //   http://localhost:3000
 // Set up CORS
 app.use(cors({
-    origin: ["https://resume-lake-front.vercel.app"], // corrected to http
+    origin: ["http://localhost:3000"], // corrected to http
     methods: ["POST", "GET"],
     credentials: true
 }));
@@ -35,5 +35,6 @@ app.get('/', (req, res) => {
 // API routes
 app.use('/api', require("./Routes/CreateUser"));
 app.use('/api', require("./Routes/ContactData"));
+app.use('/api', require("./Routes/ResumeData"));
 
 module.exports = app;

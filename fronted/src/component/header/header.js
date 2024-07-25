@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import arrow from "../assets/arrow.gif"
 function Header() {
     return (
-        <div>
-
+        <div className="header">
             <div className="container1">
                 <div className="cont">
                     <h1 className="head">A <span>Resume</span> that stands out!</h1>
@@ -23,8 +22,8 @@ function Header() {
                 </div>
             </div>
             <div className="templet">
-                <img src={clone} alt="" />
                 <h1>STUDENT RESUME TEMPLET</h1>
+                <img src={clone} alt="" />
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 .contact{
-  background-color: blue;
+  background-color: rgb(7, 7, 58);
   width: 100%;
   /* height: 100%; */
   display: flex;
@@ -10,18 +10,20 @@
 
 }
 .contact h1{
+  margin: 5%;
   margin-top: 150px;
   color: white;
 }
 .contact p{
   color: white;
+  margin: 5%;
   margin-bottom: 100px;
   font-size: 1.2rem;
 }
 .joint{
   display: flex;
   flex-direction: row;
-  height: 620px;
+  /* height: 620px; */
   margin-bottom: 50px;
 }
 .joint form h2{
@@ -101,4 +103,40 @@ form label{
   width: 50%;
   height: 30%;
   margin: 15px;
+}
+
+@media (max-width: 1282px){
+  .name{
+    flex-direction: column;
+  }
+  .contc{
+    flex-direction: column;
+  }
+  .pho{
+    flex-direction: column;
+  }
+  .cent{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 958px){
+  .joint{
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact form{
+    width: 90%;
+    margin: 5%;
+    align-items: center;
+  }
+  .me{
+    width: 90%;
+  }
+}
+@media (max-width: 488px){
+  .contact .me h2{
+    margin: 10px;
+    font-size: 1rem;
+  }
 }

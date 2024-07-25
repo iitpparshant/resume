@@ -1,7 +1,6 @@
 .containerp {
-  min-width: 550px;
   min-height: 450px;
-  max-width: 750px;
+  max-width: 65%;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -9,13 +8,13 @@
   box-shadow: 1px 1.5px 15px 1px white;
   padding-top: 5px;
   height: fit-content;
-  margin: 0 auto;
+  margin: 10%;
   border-radius: 10px;
   background-color: #525151;
   color: white;
 }
 
-.header {
+.editerheader {
   display: flex;
   gap: 10px;
   /* flex-direction:column; */
@@ -23,29 +22,29 @@
   overflow-x: auto;
   /* margin: 5px; */
 }
-.header::-webkit-scrollbar {
+.editerheader::-webkit-scrollbar {
   width: 5px; /* You can use 'width' instead of 'height' for horizontal scrollbar */
 
 }
 
-.header::-webkit-scrollbar-thumb {
+.editerheader::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background-color: #b9b4b4;
   transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
-.header::-webkit-scrollbar-thumb:hover {
+.editerheader::-webkit-scrollbar-thumb:hover {
   background-color: #aba4a4; /* Change color on hover */
 }
 
-.header::-webkit-scrollbar-track {
+.editerheader::-webkit-scrollbar-track {
   background-color: #f0f0f0; /* Track color */
   border-radius: 20px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Box shadow on track */
 }
 
 
-.header .section{
+.editerheader .section{
   padding: 10px;
   /* display: flex; */
   /* flex-direction: column; */
@@ -55,7 +54,7 @@
   white-space: nowrap;
   cursor: pointer;
 }
-.header .active{
+.editerheader .active{
   border-bottom: 3px solid #82ef06;
   color:#82ef06;
 }
@@ -143,4 +142,22 @@
 .body1 button:active{
 transform: translateY(3px);
 /* transform: translateX(2px); */
+}
+
+@media (max-width: 1227px){
+  .containerp {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 851px) {
+  .editerheader{
+    flex-direction: column;
+  }
+  .containerp {
+    max-width: 90%;
+  }
+  .detail .row{ 
+    flex-direction: column;
+  }
 }

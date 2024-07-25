@@ -21,7 +21,7 @@ let navigate= useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
-    const response= await fetch("https://resume-lake-zeta.vercel.app/api/createcontact", {
+    const response= await fetch("http://localhost:5000/api/createcontact", {
       method:"POST",
       headers: {
         'Content-Type': 'application/json'

@@ -339,7 +339,7 @@ function Editor(props) {
         }
     }
 
-    const handleSubmission = () => {
+    const handleSubmission = async() => {
         switch (sections[activeSectionKey]) {
             case sections.basicInfo: {
                 const tempDetail = {
@@ -472,7 +472,27 @@ function Editor(props) {
                 break;
             }
         }
-        // console.log(sections);
+        console.log("Information before submission: ", props.information);
+        let userEmail = localStorage.getItem("userEmail");
+        let requestData = {
+            email: userEmail,
+            information: props.information
+        };
+        let response = await fetch("http://localhost:5000/api/resumedata", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                requestData
+            )
+          });
+          const jsonResponse = await response.json();
+          console.log("JSON RESPONSE:::::", jsonResponse);
+      
+        //   if (response.status === 200) {
+        //     dispatch({ type: "DROP" });
+        //   }
     }
 
     const handleAddNew = () => {
@@ -597,7 +617,7 @@ function Editor(props) {
 
     return (
         <div className="containerp">
-            <div className="header">
+            <div className="editerheader">
                 {Object.keys(sections)?.map((key) => (
                     <div
                         className={`section ${activeSectionKey === key ? 'active' : ''
