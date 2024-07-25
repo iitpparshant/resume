@@ -13,6 +13,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("authToken")
+    localStorage.removeItem("email")
     navigate("/signin")
   }
 
