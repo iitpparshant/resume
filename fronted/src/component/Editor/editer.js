@@ -478,7 +478,7 @@ function Editor(props) {
             email: userEmail,
             information: props.information
         };
-        let response = await fetch("http://localhost:5000/api/resumedata", {
+        let response = await fetch("https://resume-lake-zeta.vercel.app/api/resumedata", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

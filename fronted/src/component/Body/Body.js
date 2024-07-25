@@ -72,7 +72,7 @@ function Body() {
           console.error('User email not found in local storage');
           return;
         }
-        const response = await axios.get("http://localhost:5000/api/comeresumedata");
+        const response = await axios.get("https://resume-lake-zeta.vercel.app/api/comeresumedata");
         // console.log("API response:", response.data);
         const userData = response.data.filter(user => user.email === userEmail);
         const resume = userData[0] || {};
