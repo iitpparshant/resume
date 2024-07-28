@@ -6,9 +6,11 @@ import Inputcontrol from "../InputControl/Inputcontrol";
 function Editor(props) {
     const sections = props.sections;
     const information = props.information;
+    const handleSave=props.handleSave
     const [activeSectionKey, setActiveSectionKey] = useState(
         Object.keys(sections)[0]
     );
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const [activeInformation, setActiveInformation] = useState(
         information[sections[Object.keys(sections)[0]]]
@@ -340,6 +342,8 @@ function Editor(props) {
     }
 
     const handleSubmission = async() => {
+        // if (isSubmitting) return;
+        setIsSubmitting(true);
         switch (sections[activeSectionKey]) {
             case sections.basicInfo: {
                 const tempDetail = {
@@ -472,23 +476,25 @@ function Editor(props) {
                 break;
             }
         }
-        console.log("Information before submission: ", props.information);
-        let userEmail = localStorage.getItem("userEmail");
-        let requestData = {
-            email: userEmail,
-            information: props.information
-        };
-        let response = await fetch("https://resume-lake-zeta.vercel.app/api/resumedata", {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
-                requestData
-            )
-          });
-          const jsonResponse = await response.json();
-          console.log("JSON RESPONSE:::::", jsonResponse);
+        // await(handleSave());
+        // setIsSubmitting(false);
+        // console.log("Information before submission: ", information);
+        // let userEmail = localStorage.getItem("userEmail");
+        // let requestData = {
+        //     email: userEmail,
+        //     information: information
+        // };
+        // let response = await fetch("http://localhost:5000/api/resumedata", {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(
+        //         requestData
+        //     )
+        //   });
+        //   const jsonResponse = await response.json();
+        //   console.log("JSON RESPONSE:::::", jsonResponse);
       
         //   if (response.status === 200) {
         //     dispatch({ type: "DROP" });
@@ -586,7 +592,11 @@ function Editor(props) {
 
     useEffect(() => {
         setActiveInformation(information[sections[activeSectionKey]]);
-        // console.log(information);
+        // console.log("hello",information);
+        if(isSubmitting==true){
+            handleSave()
+            setIsSubmitting(false)
+        }
     }, [information])
 
     useEffect(() => {
@@ -658,7 +668,7 @@ function Editor(props) {
                 </div>
                 {GenerateBody()}
 
-                <button onClick={handleSubmission}>Save</button>
+                <button onClick={handleSubmission} disabled={isSubmitting}>{isSubmitting ? "Saving..." : "Save"}</button>
             </div>
         </div>
     );

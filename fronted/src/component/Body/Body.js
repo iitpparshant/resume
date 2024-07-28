@@ -63,7 +63,7 @@ function Body() {
       detail: "",
     },
   });
-
+// https://resume-lake-zeta.vercel.app
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -134,8 +134,32 @@ function Body() {
   }, []);
 
   useEffect(() => {
-    console.log(resumeInformation);
+    console.log("dhht",resumeInformation);
   }, [resumeInformation])
+
+  const handleSave = async () => {
+    try {
+      console.log("Information before submission: ", resumeInformation);
+      let userEmail = localStorage.getItem("userEmail");
+      let requestData = {
+          email: userEmail,
+          information: resumeInformation
+      };
+      let response = await fetch("https://resume-lake-zeta.vercel.app/api/resumedata", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(
+              requestData
+          )
+        });
+        const jsonResponse = await response.json();
+        console.log("JSON RESPONSE:::::", jsonResponse);
+    } catch (error) {
+        console.error('Error saving data', error);
+    }
+};
 
   return (
     <div className="container">
@@ -162,7 +186,7 @@ function Body() {
         />
       </div>
       <div className="main">
-        <Editor sections={sections} information={resumeInformation} setInformation={setResumeInformation} />
+        <Editor sections={sections} information={resumeInformation} setInformation={setResumeInformation} handleSave={handleSave} />
         <div className="aftereditor">
           <hr />
           <h1>Final Resume</h1>
